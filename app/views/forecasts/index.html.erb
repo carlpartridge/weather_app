@@ -1,0 +1,11 @@
+<main>
+  <section>
+    <%= form_with url: "/forecasts" do |form| %>
+      <h2>Forecast</h2>
+      <%= form.label :address, "Address:" %>
+      <%= form.text_field :address %>
+      <%= form.submit "Search" %>
+    <% end %>
+  </section>
+  <turbo-frame id="forecast"></turbo-frame>
+</main>
