@@ -1,5 +1,41 @@
-<% if @forecast %>
+<% if forecast %>
   <section>
-    <%= @forecast %>
+    <aside>
+      <h4>
+        <%= forecast[:current_temp] %>&deg; F
+        <%= forecast[:short_desc] %> &nbsp; <%= "*" if cached_response %>
+      </h4>
+      Todays High/Low: <%= forecast[:daily][0][:high] %>&deg; / <%= forecast[:daily][0][:low] %>&deg;
+      <br />
+      Humidity: <%= forecast[:current_humidity] %>
+    </aside>
+  </section>
+  <section>
+    <aside>
+      <h5>Rest of the week:</h5>
+      <% forecast[:daily].each_with_index do |day, i| %>
+        <%# Ignoring today (0th) as that data is above and the last entry
+          as we dont seem to get complete data for that day %>
+        <% next if i == 0 || i == 7 %>
+        <%= day[:date] %>: <%= day[:high] %>&deg; / <%= day[:low] %>&deg;
+        <br />
+      <% end %>
+    </aside>
+  </section>
+<% end %>
+
+<% if cached_response %>
+  <section>
+    <aside small>
+      * Results were loaded from cache.
+    </aside>
+  </section>
+<% end %>
+
+<% if error %>
+  <section>
+    <aside>
+      There was an error, please double check your address above
+    </aside>
   </section>
 <% end %>

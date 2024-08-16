@@ -22,6 +22,10 @@ module WeatherApp
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+    config.eager_load_paths << Rails.root.join("services")
+
+    # Just do local memory caching for now.
+    # Eventually want to move caching config back into the env files.
+    config.cache_store = :memory_store, { size: 64.megabytes, expires_in: 30.minutes }
   end
 end
