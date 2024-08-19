@@ -1,8 +1,8 @@
-# US Census Bureau geocoding API service, see:
-# https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html
-
 # This module is handling how and where to get the data as well
 # as converting that into a specific, useful format
+
+# US Census Bureau geocoding API service, see:
+# https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html
 module GeoGov
   def self.get(address)
     response = Faraday.get(query_url(address))

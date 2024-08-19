@@ -15,7 +15,9 @@
       <h5>Rest of the week:</h5>
       <% forecast[:daily].each_with_index do |day, i| %>
         <%# Ignoring today (0th) as that data is above and the last entry
-          as we dont seem to get complete data for that day %>
+          as we dont seem to get complete data for that day 
+          TODO: move this logic out of the view...
+        %>
         <% next if i == 0 || i == 7 %>
         <%= day[:date] %>: <%= day[:high] %>&deg; / <%= day[:low] %>&deg;
         <br />

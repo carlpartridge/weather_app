@@ -1,8 +1,8 @@
-# US govt Weather API service, see:
-# https://weather-gov.github.io/api/general-faqs
-
 # This module is handling how and where to get the data as well
 # as converting that into a specific, useful format for the FE
+
+# US govt Weather API service, see:
+# https://weather-gov.github.io/api/general-faqs
 module WeatherGov
   def self.get_forecast(data)
     # need to send request to get wfo using lat, lon first
